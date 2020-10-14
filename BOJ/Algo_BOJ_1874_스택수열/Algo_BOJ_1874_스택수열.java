@@ -20,12 +20,12 @@ public class Algo_BOJ_1874_스택수열 {
 			input[i] = Integer.parseInt(br.readLine());
 		}
 		
-		int j = 1;
+		int j = 1;	// 입력받은 input 배열의 원소 확인을 위한 index 변수 j
 		for (int i = 1; i <= N; i++) {
 			s.push(i);
 			sb.append("+").append('\n');
 			
-			while (!s.isEmpty() && s.peek() == input[j]) {
+			while (!s.isEmpty() && s.peek() == input[j]) {	// 가장 위의 값이 input 배열의 값과 같다면 pop
 				s.pop();
 				sb.append("-").append('\n');
 				j++;
@@ -39,17 +39,3 @@ public class Algo_BOJ_1874_스택수열 {
 		}
 	}	// end of main
 }	// end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
