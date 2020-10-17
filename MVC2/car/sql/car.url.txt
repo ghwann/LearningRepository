@@ -1,0 +1,17 @@
+요청URL:
+http://localhost:8080/car/main.do
+
+URL									타입		메서드		결과페이지					형태				저장이름
+/main.do							get					index.jsp				sendRedirect
+/main.do?action=login				post	login()		index.jsp				forward			user(s)
+/main.do?action=logout				get		logout()	index.jsp				sendRedirect
+
+/main.do?action=regi				get		regi()		car/CarRegi.jsp			forward
+/main.do?action=save				post	save()		Result.jsp				forward			msg(r)
+														Error.jsp				forward			msg(r)
+/main.do?action=list				get		list()		car/CarList.jsp			forward			cars(r)
+/main.do?action=view&num='S20JUN'	get		view()		car/CarView.jsp			forward			car(r)
+/main.do?action=dele&num='S20JUN'	get		dele()		Result.jsp				forward			msg(r)
+														Error.jsp				forward			msg(r)
+/main.do?action=dele&num='S20JUN'	post	dele()		main.do?action=list		forward			
+                    &num='H20APR'
