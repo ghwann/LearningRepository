@@ -9,13 +9,9 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Algo_BOJ_1926 {
-	private static int N;
-	private static int M;
+	private static int N, M, max_size, now_size, cnt;
 	private static int[][] canvas;
 	private static boolean[][] visited;
-	private static int max_size;
-	private static int now_size;
-	private static int cnt;
 	private static int[] dr = {-1, 1, 0, 0};	// 상, 하, 좌, 우
 	private static int[] dc = {0, 0, -1, 1};
 	
@@ -73,10 +69,6 @@ public class Algo_BOJ_1926 {
 
 	static class Loc {
 		int r, c;
-		
-		public Loc() {
-			
-		}
 
 		public Loc(int r, int c) {
 			this.r = r;
@@ -84,17 +76,3 @@ public class Algo_BOJ_1926 {
 		}
 	}
 }	// end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
