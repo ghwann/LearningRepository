@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
  *	왼쪽부터 순서대로 하나씩 들어서, 다른계란을 내리친다 (한번씩 순회 하고 끝) 
  *
  */
-public class Main_백준_16987_계란으로계란치기 {
+public class Algo_BOJ_16987_계란으로계란치기 {
 	private static int N;
 	private static int[] s;
 	private static int[] w;
@@ -66,63 +66,3 @@ public class Main_백준_16987_계란으로계란치기 {
 
 // 반복문 보다 재귀함수가 느리다, 같은 구조로 만들었을 경우
 // 재귀함수를 쓰는 이유, 가지치기
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
