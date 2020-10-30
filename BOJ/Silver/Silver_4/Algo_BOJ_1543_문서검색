@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String input = br.readLine();
+        String find = br.readLine();
+        int ans = 0;
+        for(int i = 0; i < input.length() - find.length() + 1; i++){
+            String temp = input.substring(i, i + find.length());
+            if(temp.equals(find)){
+                ans++;
+                i += find.length();
+                i--;
+            }
+        }
+        bw.write(ans + "\n");
+
+        bw.flush();
+        br.close();
+        bw.close();
+    }
+}
