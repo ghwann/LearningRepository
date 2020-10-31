@@ -1,0 +1,55 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+
+public class BOJ_5397 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine());
+        for (int i=0; i<t; i++) {
+            getPassword(br.readLine());
+        }
+
+        br.close();
+    }
+
+    public static void getPassword(String keylogger) {
+        Stack<Character> front = new Stack<>();
+        Stack<Character> back = new Stack<>();
+
+        for (int i=0; i<keylogger.length(); i++) {
+            if (keylogger.charAt(i) == '<') {
+                if (!front.isEmpty()) {
+                    back.push(front.pop());
+                }
+            } else if (keylogger.charAt(i) == '>') {
+                if (!back.isEmpty()) {
+                    front.push(back.pop());
+                }
+            } else if (keylogger.charAt(i) == '-') {
+                if (!front.isEmpty()) {
+                    front.pop();
+                }
+            } else {
+                front.push(keylogger.charAt(i));
+            }
+        }
+
+        StringBuffer sb = new StringBuffer();
+        int size1 = front.size();
+        int size2 = back.size();
+
+        for (int i=0; i<size1; i++) {
+            sb.append(front.pop());
+        }
+
+        sb.reverse();
+
+        for (int i=0; i<size2; i++) {
+            sb.append(back.pop());
+        }
+
+        System.out.println(sb.toString());
+    }
+}
