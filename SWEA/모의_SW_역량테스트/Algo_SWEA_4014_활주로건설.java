@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class HwAlgorithmSWEA_4014_활주로건설 {
+public class Algo_SWEA_4014_활주로건설 {
 	
 	static int[][] map;
 	static int N, X, T, ans;
