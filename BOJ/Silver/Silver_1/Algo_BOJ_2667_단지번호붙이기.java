@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Algo_BOJ_2667_´ÜÁö¹øÈ£ºÙÀÌ±â {
+public class Algo_BOJ_2667_ë‹¨ì§€ë²ˆí˜¸ë¶™ì´ê¸° {
 	private static int N, ans, cnt;
 	private static int[][] apt;
 	private static boolean[][] visited;
@@ -50,7 +50,7 @@ public class Algo_BOJ_2667_´ÜÁö¹øÈ£ºÙÀÌ±â {
 	// 00 01 02
 	// 10 11 12
 	// 20 21 22
-	private static int[] dr = {-1, 1, 0, 0};	// »ó, ÇÏ, ÁÂ, ¿ì
+	private static int[] dr = {-1, 1, 0, 0};	// ìƒ, í•˜, ì¢Œ, ìš°
 	private static int[] dc = {0, 0, -1, 1};
 	private static void bfs(int i, int j) {
 		Queue<Loc> q = new LinkedList<Loc>();
@@ -85,14 +85,3 @@ public class Algo_BOJ_2667_´ÜÁö¹øÈ£ºÙÀÌ±â {
 		}
 	}
 }	// end of class
-
-
-
-
-
-
-
-
-
-
-
