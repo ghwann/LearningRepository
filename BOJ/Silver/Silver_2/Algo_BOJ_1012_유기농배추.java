@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Algo_BOJ_1012_À¯±â³ó¹èÃß {
-	private static int T, M, N, K, ans;		// T:Å×½ºÆ®ÄÉÀÌ½º, M:°¡·Î±æÀÌ, N:¼¼·Î±æÀÌ, K:¹èÃßÀ§Ä¡ °³¼ö, ans:ÇÊ¿äÇÑ Áö··ÀÌ ¸¶¸® ¼ö
+public class Algo_BOJ_1012_ìœ ê¸°ë†ë°°ì¶” {
+	private static int T, M, N, K, ans;		// T:í…ŒìŠ¤íŠ¸ì¼€ì´ìŠ¤, M:ê°€ë¡œê¸¸ì´, N:ì„¸ë¡œê¸¸ì´, K:ë°°ì¶”ìœ„ì¹˜ ê°œìˆ˜, ans:í•„ìš”í•œ ì§€ë ì´ ë§ˆë¦¬ ìˆ˜
 	private static int[][] map;
 	private static boolean[][] checked;
 	
@@ -83,18 +83,3 @@ public class Algo_BOJ_1012_À¯±â³ó¹èÃß {
 		}
 	}
 }	// end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
