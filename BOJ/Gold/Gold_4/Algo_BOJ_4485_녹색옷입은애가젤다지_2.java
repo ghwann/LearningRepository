@@ -65,26 +65,3 @@ public class Algo_BOJ_4485_녹색옷입은애가젤다지_2 {
 		System.out.print(sb);
 	} // end of main
 } // end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
