@@ -1,0 +1,93 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Shark{
+    int y,x,time;
+}
+class Main{
+    static int n;
+    static int[][] map;
+    static int shark_size, shark_eat;
+    static Shark shark=new Shark();
+    static int []dy={1,-1,0,0};
+    static int []dx={0,0,-1,1};
+    public static void main (String[] args) throws IOException {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        n=Integer.parseInt(br.readLine());
+        map=new int[n][n];
+        for(int y=0;y<n;y++){
+            String[] tmp=br.readLine().split(" ");
+            for(int x=0;x<n;x++){
+                map[y][x]=Integer.parseInt(tmp[x]);
+                if(map[y][x]==9){
+                    shark.y=y;
+                    shark.x=x;
+                    shark.time=0;
+                    shark_size=2;
+                    shark_eat=0;
+                    map[y][x]=0;
+                }
+            }
+        }
+
+        boolean is_update=true;
+        while(is_update){
+            is_update=false;
+            boolean [][] visited=new boolean[n][n];
+            Queue<Shark> q=new LinkedList<>();
+            visited[shark.y][shark.x]=true;
+            q.offer(shark);
+
+            Shark candi=new Shark();
+            candi.y=n;
+            candi.time=-1;
+            while(!q.isEmpty()){
+                Shark cur=q.peek();
+                q.poll();
+
+                if(candi.time!=-1 && candi.time < cur.time){
+                    // 가장 가까운 물고기를 이미 먹었다면 break
+                    break;
+                }
+
+                if(map[cur.y][cur.x]<shark_size && map[cur.y][cur.x]!=0){
+                    // 물고기 먹을 수 있는지?
+                    is_update=true;
+                    if(candi.y > cur.y || (candi.y == cur.y && candi.x>cur.x)){
+                        candi=cur;
+                    }
+                }
+                for(int dir=0;dir<4;dir++){
+                    // 네방향 이동 가능한 곳 탐색
+                    Shark next=new Shark();
+                    next.y=cur.y+dy[dir];
+                    next.x=cur.x+dx[dir];
+                    next.time=cur.time+1;
+
+                    if(next.y<0 || next.y>=n || next.x<0 || next.x>=n){
+                        continue;
+                    }
+                    if(!visited[next.y][next.x] && shark_size>=map[next.y][next.x]){
+                        visited[next.y][next.x]=true;
+                        q.offer(next);
+                    }
+                }
+            }
+            if(is_update){
+                // 먹을 수 있는 물고기가 있다면, 물고기 먹은 개수와 크기를 증가
+                shark=candi;
+                shark_eat++;
+                if(shark_eat==shark_size){
+                    // 자신의 크기와 같은 수의 물고기를 먹었다면 크기가 1 증가
+                    shark_size++;
+                    shark_eat=0;
+                }
+                map[shark.y][shark.x]=0;
+            }
+        }
+        System.out.println(shark.time);
+    }
+}
