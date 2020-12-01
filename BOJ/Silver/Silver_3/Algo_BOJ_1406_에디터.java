@@ -64,21 +64,3 @@ public class Algo_BOJ_1406_에디터 {
 		bw.close();
 	}	// end of main
 }	// end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
