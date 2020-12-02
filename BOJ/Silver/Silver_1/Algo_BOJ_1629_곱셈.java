@@ -33,11 +33,3 @@ public class Algo_BOJ_1629_곱셈 {
 		}
 	}
 }	// end of class
-
-
-
-
-
-
-
-
