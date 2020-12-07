@@ -44,18 +44,3 @@ public class Algo_BOJ_2493_탑 {
 //		}
 //	}
 }	// end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
