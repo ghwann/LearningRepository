@@ -1,0 +1,97 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main {
+	private static int R, C, minutes;
+	private static char[][] maze;
+	private static Queue<Loc> jh, fire;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		R = Integer.parseInt(st.nextToken());
+		C = Integer.parseInt(st.nextToken());
+		maze = new char[R][C];
+		jh = new LinkedList<Loc>();
+		fire = new LinkedList<Loc>();
+		
+		String str;
+		for (int i = 0; i < R; i++) {
+			str = br.readLine();
+			for (int j = 0; j < C; j++) {
+				char ch = str.charAt(j);
+				if (ch == 'J') {
+					jh.offer(new Loc(i, j, 0));
+				} else if (ch == 'F') {
+					fire.offer(new Loc(i, j, 0));
+				}
+				maze[i][j] = ch;
+			}
+		}
+		
+		if (bfs()) {
+			System.out.println(minutes);
+		} else {
+			System.out.println("IMPOSSIBLE");
+		}
+	}	// end of main
+	
+	private static int[] dr = {-1, 1, 0, 0};
+	private static int[] dc = {0, 0, -1, 1};
+	private static boolean bfs() {
+		while (!jh.isEmpty()) {
+			// 불이 먼저 퍼짐
+			int size = fire.size();
+			for (int i = 0; i < size; i++) {
+				Loc l = fire.poll();
+				
+				for (int j = 0; j < 4; j++) {
+					int nr = l.x + dr[j];
+					int nc = l.y + dc[j];
+					
+					if (0 <= nr && nr < R && 0 <= nc && nc < C && (maze[nr][nc] == '.' || maze[nr][nc] == 'J')) {
+						fire.offer(new Loc(nr, nc, l.step+1));
+						maze[nr][nc] = 'F';
+					}
+				}
+			}
+			
+			size = jh.size();
+			for (int i = 0; i < size; i++) {
+				Loc l = jh.poll();
+				
+				for (int j = 0; j < 4; j++) {
+					int nr = l.x + dr[j];
+					int nc = l.y + dc[j];
+					
+					if (0 > nr || nr >= R || 0 > nc || nc >= C) {
+						minutes = l.step + 1;
+						return true;
+					}
+					
+					if (maze[nr][nc] == '.') {
+						jh.offer(new Loc(nr, nc, l.step+1));
+						maze[nr][nc] = 'J';
+					}
+				}
+			}
+			
+		}	// end of while loop
+		
+		return false;
+	}
+
+	static class Loc {
+		int x, y, step;
+
+		public Loc(int x, int y, int step) {
+			this.x = x;
+			this.y = y;
+			this.step = step;
+		}
+	}
+}	// end of class
