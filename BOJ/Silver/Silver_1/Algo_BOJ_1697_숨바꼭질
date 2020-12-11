@@ -1,0 +1,66 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main {
+	private static int N, K, max = 100000;
+	private static boolean[] visited;
+	private static int[] dx = {-1, 1};
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		N = Integer.parseInt(st.nextToken());
+		K = Integer.parseInt(st.nextToken());
+		visited = new boolean[max+1];
+		
+		System.out.println(bfs());
+	}	// end of main
+
+	private static int bfs() {
+		if (N == K) {
+			return 0;
+		}
+		
+		int x;
+		Queue<info> q = new LinkedList<>();
+		q.offer(new info(N, 0));
+		visited[N] = true;
+		
+		while (!q.isEmpty()) {
+			info now = q.poll();
+			
+			for (int i = 0; i < 3; i++) {
+				if (i == 2) {
+					x = now.pos * 2;
+				} else {
+					x = now.pos + dx[i];
+				}
+				
+				if (x == K) {
+					return now.time + 1;
+				}
+				
+				if (0 <= x && x <= max && !visited[x]) {
+					q.offer(new info(x, now.time + 1));
+					visited[x] = true;
+				}
+			}
+		}
+		
+		return 0;
+	}
+
+	static class info {
+		int pos;
+		int time;
+		
+		public info(int pos, int time) {
+			this.pos = pos;
+			this.time = time;
+		}
+	}
+}	// end of class
