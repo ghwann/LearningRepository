@@ -42,13 +42,3 @@ public class Algo_BOJ_4889_안정적인문자열 {
 		System.out.println(sb);
 	}	// end of main
 }	// end of class
-
-
-
-
-
-
-
-
-
-
