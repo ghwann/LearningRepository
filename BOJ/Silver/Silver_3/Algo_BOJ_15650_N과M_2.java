@@ -43,12 +43,3 @@ public class Algo_BOJ_15650_N과M_2 {
 		}
 	}
 }	// end of class
-
-
-
-
-
-
-
-
-
