@@ -56,20 +56,3 @@ public class Algo_BOJ_6603_로또 {
 		}
 	}
 }	// end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
