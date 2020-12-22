@@ -60,21 +60,3 @@ public class Algo_BOJ_1780_종이의개수 {
 		return true;
 	}
 }	// end of class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
