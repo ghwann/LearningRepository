@@ -36,4 +36,4 @@ public class BOJ_1475_방번호 {
 		System.out.println(max);
 	}	// end of main
 
-}	// end of class
+}	// end of class 
